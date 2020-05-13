@@ -3,7 +3,7 @@ import Client from '../../Contentful'
 
 const RoomContext = createContext();
 
-export default class RoomProvider extends Component {
+class RoomProvider extends Component {
     constructor(props) {
         super(props)
 
@@ -23,7 +23,6 @@ export default class RoomProvider extends Component {
             pets: false
         }
     }
-
     //Fetch Data
     fetchData = async () => {
         try {
@@ -93,23 +92,23 @@ export default class RoomProvider extends Component {
 
         // filter by types
         if (type !== 'all') {
-            tempRooms = tempRooms.filter(rooms => rooms.type === type)
+            tempRooms = tempRooms.filter(room => room.type === type)
         }
 
         // filter by capacity
         if (capacity !== 1) {
-            tempRooms = tempRooms.filter(rooms => rooms.capacity >= capacity)
+            tempRooms = tempRooms.filter(room => room.capacity >= capacity)
         }
 
         // price filter
-        tempRooms = tempRooms.filter(rooms => rooms.price <= price)
+        tempRooms = tempRooms.filter(room => room.price <= price)
 
         // filter by size
-        tempRooms = tempRooms.filter(rooms => rooms.size >= minSize && rooms.size <= maxSize)
+        tempRooms = tempRooms.filter(room => room.size >= minSize && room.size <= maxSize)
 
         // filter by breakfast
         if (breakfast) {
-            tempRooms = tempRooms.filter(rooms => rooms.breakfast === true)
+            tempRooms = tempRooms.filter(room => room.breakfast === true)
         }
 
         // filter by pets
