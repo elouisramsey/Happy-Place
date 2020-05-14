@@ -87,33 +87,33 @@ class RoomProvider extends Component {
         let tempRooms = [...rooms]
 
         // change value to number 
-        capacity = parseInt(capacity)
-        price = parseInt(price)
+        capacity = parseInt(capacity, 10)
+        price = parseInt(price, 10)
 
         // filter by types
         if (type !== 'all') {
-            tempRooms = tempRooms.filter(room => room.type === type)
+            tempRooms = tempRooms.filter(rooms => rooms.type === type)
         }
 
         // filter by capacity
         if (capacity !== 1) {
-            tempRooms = tempRooms.filter(room => room.capacity >= capacity)
+            tempRooms = tempRooms.filter(rooms => rooms.capacity >= capacity)
         }
 
         // price filter
-        tempRooms = tempRooms.filter(room => room.price <= price)
+        tempRooms = tempRooms.filter(rooms => rooms.price <= price)
 
         // filter by size
-        tempRooms = tempRooms.filter(room => room.size >= minSize && room.size <= maxSize)
+        tempRooms = tempRooms.filter(rooms => rooms.size >= minSize && rooms.size <= maxSize)
 
         // filter by breakfast
         if (breakfast) {
-            tempRooms = tempRooms.filter(room => room.breakfast === true)
+            tempRooms = tempRooms.filter(rooms => rooms.breakfast === true)
         }
 
         // filter by pets
         if (pets) {
-            tempRooms = tempRooms.filter(room => room.pets === true)
+            tempRooms = tempRooms.filter(rooms => rooms.pets === true)
         }
 
         // state change

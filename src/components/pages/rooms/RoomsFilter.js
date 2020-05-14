@@ -71,6 +71,7 @@ const RoomsFilter = ({ rooms }) => {
           <label htmlFor='capacity'>Guests</label>
           <select
             name='capacity'
+            type='number'
             id='capacity'
             value={capacity}
             className='form-control'
